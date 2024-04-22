@@ -1,5 +1,5 @@
 import bodyParser from 'body-parser';
-import Routes from '../routes';
+import Routes from '../route';
 import express, { Application } from 'express';
 
 export default (app: Application): void => {

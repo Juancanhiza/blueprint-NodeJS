@@ -2,6 +2,7 @@ import { Application } from 'express';
 import databaseLoader from './database';
 import expressLoader from './express';
 import Container from 'typedi';
+import { ExampleRepositoryImpl } from '../repository';
 
 export default async (app:Application): Promise<void> => {
     let database;
@@ -17,4 +18,6 @@ export default async (app:Application): Promise<void> => {
     
 
     // add DI objects
+    Container.set('db-conn', database);
+    Container.set({id: 'example-repository', value: new ExampleRepositoryImpl() });
 }
